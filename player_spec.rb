@@ -6,6 +6,27 @@ describe Player do
 		@initial_health = 150
 		@player = Player.new("larry", @initial_health)
 	end
+	
+	context "who has a health of 150" do
+		before do
+			@initial_health = 150
+			@player = Player.new("moe", @initial_health)
+		end
+
+		it "is strong" do 
+			@player.should be_strong
+		end
+	end
+
+	context "who has a health of 100" do
+		before do
+			@player = Player.new("curly", 100)
+		end
+
+		it "is not strong" do
+			@player.should_not be_strong
+		end
+	end
 
 	it "has a capitalized name" do
 		@player.name.should == "Larry"
